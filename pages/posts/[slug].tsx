@@ -9,8 +9,10 @@ import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
-import markdownToHtml from '../../lib/markdownToHtml'
 import PostType from '../../types/post'
+//zennのマークダウン記法に対応
+import markdownToHtml from 'zenn-markdown-html';
+import 'zenn-content-css';
 
 type Props = {
   post: PostType
@@ -31,7 +33,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="mb-32">
+            <article className="mb-32 znc">
               <Head>
                 <title>
                   {post.title} | Next.js Blog Example with {CMS_NAME}
