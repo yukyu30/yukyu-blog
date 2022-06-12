@@ -10,6 +10,7 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import PostType from '../../types/post'
+import {join} from'path'
 //zennのマークダウン記法に対応
 import markdownToHtml from 'zenn-markdown-html';
 import 'zenn-content-css';
@@ -92,7 +93,7 @@ export async function getStaticPaths() {
     paths: posts.map((post) => {
       return {
         params: {
-          slug: post.slug,
+          slug: post.slug.replace(/\.md$/, '').split("/")
         },
       }
     }),
