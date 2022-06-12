@@ -10,7 +10,7 @@ type Props = {
   date: string
   excerpt: string
   author: Author
-  slug: string
+  slug: string[]
 }
 
 const PostPreview = ({
